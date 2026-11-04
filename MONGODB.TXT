@@ -1,0 +1,125 @@
+
+
+Banco de dados não relacional - NOSQL - Orientado a documentos
+
+mongo       sql
+----------  ---------
+database    database
+collection  table
+document    row
+
+tipo de dados 
+---------------------
+https://www.mongodb.com/pt-br/docs/manual/reference/bson-types/
+
+JSON ==> JavaScript Object Notation
+BSON ==> Binary JSON (mongodb)
+Além de todos os dados do JSON (null, String, Number, Array, Object), o BSON suporta:
+1) MinKey, MaxKey, Timestamp — tipos utilizados internamente no MongoDB;
+2) BinData — array de bytes para dados binários;
+3) ObjectId — identificador único de um registro do MongoDB;
+4) Date — representação de data;
+5) Expressões regulares.
+
+
+cd E:\Cursos\MONGODB
+
+
+Executar mangosh
+------------------------------------------------------------
+E:\Cursos\MONGODB\mongosh-2.14.1-win32-x64\bin\mongosh.exe
+
+diretório do db e log
+--------------------------------------------------------------
+cd E:\'Program Files'\MongoDB\Server\9.0\data  --> banco de dados
+cd E:\'Program Files'\MongoDB\Server\9.0\log  --> log
+cd E:\'Program Files'\MongoDB\Curso
+
+como executar mongod
+----------------------------------------------------------
+cd C:\'Program Files'\MongoDB\Server\9.0\bin
+.\mongod
+.\mongod --help
+mkdir E:\'Program Files'\MongoDB\Curso
+.\mongod --dbpath E:\'Program Files'\MongoDB\Curso
+
+
+
+
+https://www.mongodb.com/lp/cloud/atlas
+
+allanfgomes@gmail.com
+r29a15A06$
+
+
+BANCO DE DADOS
+allanfgomes2021_db_user
+jJy6BSqDCLlZboCQ
+
+CONEXÃO LOCAL
+-----------------------------------
+mongodb://127.0.0.1:27017
+
+CONEXÃO DO SERVIDOR
+-----------------------------------------------------
+
+JS
+mongodb+srv://allanfgomes2021_db_user:jJy6BSqDCLlZboCQ@cluster0.nu7dfk0.mongodb.net/
+
+   COM MOGOOSE
+   ngodb+srv://allanfgomes2021_db_user:<db_password>@cluster0.nu7dfk0.mongodb.net/
+   PRISMA
+   mongodb+srv://allanfgomes2021_db_user:<db_password>@cluster0.nu7dfk0.mongodb.net/
+   TYPEORM
+   mongodb+srv://allanfgomes2021_db_user:<db_password>@cluster0.nu7dfk0.mongodb.net/
+
+VSCODE
+mongodb+srv://<db_username>:jJy6BSqDCLlZboCQ@cluster0.nu7dfk0.mongodb.net/
+
+PYTHON
+SINCRONO
+mongodb+srv://allanfgomes2021_db_user:<db_password>@cluster0.nu7dfk0.mongodb.net/
+ASSINCRONO
+mongodb+srv://allanfgomes2021_db_user:<db_password>@cluster0.nu7dfk0.mongodb.net/
+
+
+
+Selecionando um banco
+----------------------
+use <nome do banco>
+
+Acessando a collection
+-----------------------
+db.primeiracollection
+
+Listando uma collection
+-----------------------
+db.primeiracollection.find()
+mongo --> client
+mongod --> banco de dados
+mongo --help
+
+
+db.<tab> monstra a lista
+db --> ativa o banco de teste
+use MeuDB --> troca de banco de dados (caso não exista: ele cria)
+show dbs --> exibe todos os dbs
+db.minhacollection --> troca de collection (caso não exista: ele cria)
+db.minhacollection.insertOne({'nome': 'allan'}) --> insere um documento
+db.minhacollection.find()
+db.minhacollection.find().pretty()
+db.minhacollection.insertOne({
+   "name": "Toninho",
+   "idade": 12,
+   "gostaDe": ["futebol", "carrinho", "videogame"],
+   "naEscola": true,
+   "Matérias": {
+      "português": 8.9,
+      "história": 6.0,
+      "matemática": 10.0
+   }
+})
+_id é formado por 12 bytes
+primeiro 4 bytes => timestamp da criação
+5 bytes = número randômico
+3 bytes = número sequencial (inicializado randomicamente)
